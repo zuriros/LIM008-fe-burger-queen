@@ -28,6 +28,7 @@ const objTempl = {
        <th>Total</th>
        <th></th>
       </tr>
+      <p id = 'hola'></p>
     </table>
      <h4>Total:</h4>
     <button>Enviar a cocina</button>    
@@ -82,5 +83,8 @@ const objTempl = {
   </div>`
 };
 export {objTempl};
+
+
+
 
 
