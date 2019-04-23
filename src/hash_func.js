@@ -32,9 +32,9 @@ window.addEventListener('load', hashTmpl(window.location.hash));
 if (('onhashchange' in window)) window.onhashchange = () => hashTmpl(window.location.hash);
 
 
-const eventShowData = (idButton) => {
-  document.getElementById(idButton).addEventListener('click', () => {
-    document.getElementById('hola').innerHTML = 'holaaass';
-  });
-};  
-eventShowData('8cF6pXRj7tzHlqchlW5M');
+// const eventShowData = (idButton) => {
+  // document.getElementById('8cF6pXRj7tzHlqchlW5M').addEventListener('click', () => {
+  //   document.querySelector('#hola').innerHTML = 'holaaass';
+  // });
+// };  
+// eventShowData('8cF6pXRj7tzHlqchlW5M');

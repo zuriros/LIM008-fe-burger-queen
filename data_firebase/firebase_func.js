@@ -1,24 +1,6 @@
-const buttonMenu = (dataProd) => {
-  const comidList = document.getElementById('des-list');
-  let butt = document.createElement('BUTTON'); 
-  console.log(butt);
-   
-  let nameFood = document.createElement('span');
-  let tipo = document.createElement('span');
-  let precio = document.createElement('span');
-  // agregando el id y el firbase id en el button.
-  butt.setAttribute('id', dataProd.id);
-  nameFood.textContent = dataProd.data.nombre;   
-  // tipo.textContent = dataProd.data.tipo;
-  precio.textContent = dataProd.data.precio;
 
-  butt.appendChild(nameFood);
-  // butt.appendChild(tipo);
-  butt.appendChild(precio);
-  //  console.log(comidList.appendChild(butt));
-  comidList.appendChild(butt);
-};
 
+import { buttonMenu } from '../src/template.js';
 
 // obteniendo la data de firebase
 export const getFunc = (desOrAlm) => {  
@@ -39,6 +21,12 @@ export const getFunc = (desOrAlm) => {
   });
 };
 
+// const eventShowData = (idButton) => {
+// document.getElementById('8cF6pXRj7tzHlqchlW5M').addEventListener('click', () => {
+//   document.getElementById('hola').innerHTML = 'holaaass';
+// });
+// };  
+// eventShowData('8cF6pXRj7tzHlqchlW5M');
 
 // functLi('Jugo de frutas natural');
 
