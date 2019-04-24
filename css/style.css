@@ -1,0 +1,40 @@
+header{
+    width:100%;
+    background:rgba(248, 245, 245, 0.671);
+    margin: 0%;
+    text-align: center;
+}
+ img{
+    width: 100px; 
+    height: 100px
+ }
+ section{
+     display: inline;
+ }
+ body{
+   background: url('../imagenes2/flor.jpg');
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+
+ }
+.label{
+    font-size: 17px
+}
+ .desayuno{
+    display: inline;
+
+ }
+ footer{
+    /* width:100%; */
+    background:black;
+    /* margin: 0%; */
+    text-align: center;
+    color: bisque;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:30px;
+    width:100%;
+ }

@@ -1,21 +1,21 @@
 
 export const objTempl = {
   home: `<div>
-   <h2>menú</h2>
-   <a href="#/cocina"><button>Cocina</button></a>
-   <a href="#/mesas"><button>Mesas</button></a>
+   <h1>Menú</h1>
+   <a href="#/cocina"><button class="btn btn-warning btn-lg">Cocina</button></a>
+   <a href="#/mesas"><button class="btn btn-warning btn-lg">Mesas</button></a>
   </div>`,
   mesas: ` <div>
-  <a href="#/desayuno"><button>Desayuno</button></a>
-  <a href="#/almuerzo"><button>Almuerzos</button></a>
-  <a href="#/"><button>Regresar</button></a>
+  <a href="#/desayuno"><button class="btn btn-warning btn-lg">Desayuno</button></a>
+  <a href="#/almuerzo"><button class="btn btn-warning btn-lg">Almuerzos</button></a>
+  <a href="#/"><button class="btn btn-warning btn-lg">Regresar</button></a>
     <figure><img src="" alt=""></figure>
    </div>`,
   desayuno: ` <div>
     <h2>Desayuno</h2>
     <section id='des-list'></section>
     
-    <a href="#/mesas"><button>Regresar</button></a>
+    <a href="#/mesas"><button class="btn btn-warning btn-lg">Regresar</button></a>
 
    </div>
    <div>
@@ -72,23 +72,32 @@ export const objTempl = {
 
 </div>
 <div>
-<form action="">Nombre:<input type="text"></form>  
-<div>
-  <h4>Agregar producto <br><input type="text"></h4>
-  <table>
-    <tr>
-      <th>Producto</th>
-      <th>Cantidad</th>
-      <th>Total</th>
-      <th></th>
+    <form action="">Nombre:<input type="text"></form>  
+   <div>
+    <h4>Agregar producto <br><input type="text"></h4>
+    <table>
+    <thead>
+      <tr>
+       <th>Producto</th>
+       <th>Cantidad</th>
+       <th>Precio</th>
+       <th></th>
+      </tr>
+     </thead>
+    <tbody id ="pedidos"></tbody>
+    <tfoot>
+     <tr> 
+      <td>Total</td> 
+      <td></td>
+      <td></td>
      </tr>
-     <ul id='des-list'></ul>
-  </table>
-  <h4>Total:</h4>
-  <button>Enviar a cocina</button>
-      
-  </div>
-</div>`,
+    </tfoot>
+    
+    </table>
+     
+    <button>Enviar a cocina</button>    
+   </div>
+  </div>`,
   errorPag: `<div id="message">
     <h2>404</h2>
     <h1>Página no encontrada</h1>
@@ -96,16 +105,37 @@ export const objTempl = {
   </div>`
 };
 
+const templObj = (Obj) => {
+   const templFood = ` 
+   <tr>
+     <td>${Obj.nombre}</td>
+     <td>cantidad</td>
+     <td>${Obj.precio}</td>
+     <td>x</td>
+  </tr>
+   `
+   return templFood;
+};
+
 // export {objTempl};
 
-const eventShowData = (idButton) => {
+const eventShowData = (idButton, dataProduct) => {
+  // const arr
+  // console.log(dataName);
+  console.log(dataProduct);
+  
   const callIdButt = document.getElementById(idButton);
   callIdButt.addEventListener('click', () => {
-    document.querySelector('#pedidos').innerHTML = 'holaaaaa';
+  const prue = document.getElementById('pedidos').innerHTML += templObj(dataProduct);
+ 
   });
+
 };  
 
+
 export const buttonMenu = (dataProd) => {
+  console.log(dataProd);
+  
   const comidList = document.getElementById('des-list');
 
   let butt = document.createElement('BUTTON'); 
@@ -127,10 +157,7 @@ export const buttonMenu = (dataProd) => {
 //  const algo = document.getElementById(`${ dataProd.id}`);
 //  algo.addEventListener('click', () => {
 //    document.querySelector('#hola').innerHTML = 'cafe'
-console.log(eventShowData(`${ dataProd.id}`));
-
-
-
+eventShowData(dataProd.id, dataProd.data);
   // });
 };
 
@@ -141,5 +168,13 @@ console.log(eventShowData(`${ dataProd.id}`));
 //   document.querySelector('#hola').innerHTML = 'holaaass';
 // });
 
+ // console.log(nameFoodPrice);
+  // const callTbodyId = document.getElementById('pedidos');
+  // const creatTr = document.createElement('TR');
+  // const creatTd = document.createElement('TD');
+
+  // callTbodyId.appendChild(creatTr);
+  // creatTd.appendChild(nameFoodPrice);
+  // creatTr.appendChild(creatTd);
 
 

@@ -1,5 +1,4 @@
 
-
 import { buttonMenu } from '../src/template.js';
 
 // obteniendo la data de firebase
