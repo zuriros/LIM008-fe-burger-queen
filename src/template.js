@@ -1,3 +1,4 @@
+import {buttonMenu, eventShowData, templObj} from '../src/control_func.js';
 
 export const objTempl = {
   home: `<div>
@@ -105,76 +106,5 @@ export const objTempl = {
   </div>`
 };
 
-const templObj = (Obj) => {
-   const templFood = ` 
-   <tr>
-     <td>${Obj.nombre}</td>
-     <td>cantidad</td>
-     <td>${Obj.precio}</td>
-     <td>x</td>
-  </tr>
-   `
-   return templFood;
-};
-
-// export {objTempl};
-
-const eventShowData = (idButton, dataProduct) => {
-  // const arr
-  // console.log(dataName);
-  console.log(dataProduct);
-  
-  const callIdButt = document.getElementById(idButton);
-  callIdButt.addEventListener('click', () => {
-  const prue = document.getElementById('pedidos').innerHTML += templObj(dataProduct);
- 
-  });
-
-};  
-
-
-export const buttonMenu = (dataProd) => {
-  console.log(dataProd);
-  
-  const comidList = document.getElementById('des-list');
-
-  let butt = document.createElement('BUTTON'); 
-  let nameFood = document.createElement('span');
-  let tipo = document.createElement('span');
-  let precio = document.createElement('span');
-  // agregando el id y el firbase id en el button.
-  butt.setAttribute('id', dataProd.id);
-  nameFood.textContent = dataProd.data.nombre;   
-  // tipo.textContent = dataProd.data.tipo;
-  precio.textContent = dataProd.data.precio;
-
-  butt.appendChild(nameFood);
-  // butt.appendChild(tipo);
-  butt.appendChild(precio);
-  //  console.log(comidList.appendChild(butt));
-  comidList.appendChild(butt);
-
-//  const algo = document.getElementById(`${ dataProd.id}`);
-//  algo.addEventListener('click', () => {
-//    document.querySelector('#hola').innerHTML = 'cafe'
-eventShowData(dataProd.id, dataProd.data);
-  // });
-};
-
-
-
-
-// document.getElementById('8cF6pXRj7tzHlqchlW5M').addEventListener('click', () => {
-//   document.querySelector('#hola').innerHTML = 'holaaass';
-// });
-
- // console.log(nameFoodPrice);
-  // const callTbodyId = document.getElementById('pedidos');
-  // const creatTr = document.createElement('TR');
-  // const creatTd = document.createElement('TD');
-
-  // callTbodyId.appendChild(creatTr);
-  // creatTd.appendChild(nameFoodPrice);
-  // creatTr.appendChild(creatTd);
 
 

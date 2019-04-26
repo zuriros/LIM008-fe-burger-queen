@@ -1,10 +1,10 @@
 
-import { buttonMenu } from '../src/template.js';
+import {buttonMenu} from '../src/control_func.js';
 
 // obteniendo la data de firebase
-export const getFunc = (desOrAlm) => {  
+export const getFunc = (breakOrLunch) => {  
   const db = firebase.firestore();
-  return db.collection('Menu').where('tipo', '==', desOrAlm).get().then((snapshot) => { 
+  return db.collection('Menu').where('tipo', '==', breakOrLunch).get().then((snapshot) => { 
     const arrObj = [];  
     snapshot.docs.forEach(doc => {
       const objDocum = {
