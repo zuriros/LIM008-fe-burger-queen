@@ -37,7 +37,7 @@ export const objTempl = {
      <tr> 
       <td>Total</td> 
       <td></td>
-      <td>S/suma de pro </td>
+      <td><span id='Total'>S/.</span></td>
      </tr>
     </tfoot>
     

@@ -3,9 +3,9 @@ export const templObj = (Obj) => {
   const creatTr = document.createElement('tr');
   const templFood = `    
        <td>${Obj.nombre}</td>
-       <td>cantidad</td>
-       <td>${Obj.precio}</td>
-       <td>x</td>
+       <td><input type="number" id="myNumber" value="${Obj.cantidad}"><button class="btn-inc" title="inc stock">-</button><button class="btn-inc" title="inc stock">+</button></td>
+       <td>${Obj.cantidad * Obj.precio}</td>
+       <td><button class="btn-inc" title="inc stock">X</button></td>
      `;
   creatTr.innerHTML = templFood ;
   return creatTr;
@@ -14,15 +14,20 @@ export const templObj = (Obj) => {
 const arrObjt = []; 
 
 export const eventShowData = (idButton, dataProduct) => {
-  
   const callIdButt = document.getElementById(idButton);
   callIdButt.addEventListener('click', () => { 
-    arrCondi(idButton, dataProduct);
+    const arrDataProduct = arrConditional(dataProduct);
+    console.log(arrDataProduct);
     //  arrObjt.push(dataProduct);
     const callPedidos = document.getElementById('pedidos');
-    callPedidos.appendChild(templObj(dataProduct));
+    callPedidos.innerHTML = '';
+    let sumaTotal = 0;
+    arrDataProduct.forEach((elem) => {
+      callPedidos.appendChild(templObj(elem));
+      sumaTotal += elem.cantidad * elem.precio;
+    });
+    document.querySelector('#Total').innerHTML = sumaTotal;
   });
-  return arrObjt;
 };  
 
 export const buttonMenu = (dataProd) => {
@@ -46,14 +51,15 @@ export const buttonMenu = (dataProd) => {
   eventShowData(dataProd.id, dataProd.data);
 };
   
-const arrCondi = (idButton, dataProduct) => {
+const arrConditional = (dataProduct) => {
   const findFirstElem = arrObjt.find((element) => (element === dataProduct));
   if (findFirstElem === undefined) {
+    dataProduct.cantidad = 1;
     arrObjt.push(dataProduct);
-      console.log('confuse');   
+    console.log('confuse');   
   } else {
-    
-    console.log('quieo entender');
+    dataProduct.cantidad += 1;
+    console.log('existe el elemento');
   }
   return arrObjt;
 };
