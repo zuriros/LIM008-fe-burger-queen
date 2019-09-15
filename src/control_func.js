@@ -8,7 +8,7 @@ export const templObj = (Obj) => {
        <td><button class="btn-inc" title="inc stock">X</button></td>
      `;
   creatTr.innerHTML = templFood ;
-  return creatTr;
+  return creatTr; 
 };
 
 const arrObjt = []; 
@@ -41,6 +41,8 @@ export const buttonMenu = (dataProd) => {
   let precio = document.createElement('span');
   // agregando el id y el firbase id en el button.
   butt.setAttribute('id', dataProd.id);
+  // console.log('yo soy', dataProd.data.nombre);
+    
   nameFood.textContent = dataProd.data.nombre;  
   precio.textContent = dataProd.data.precio;
   
@@ -53,6 +55,7 @@ export const buttonMenu = (dataProd) => {
   
 const arrConditional = (dataProduct) => {
   const findFirstElem = arrObjt.find((element) => (element === dataProduct));
+  
   if (findFirstElem === undefined) {
     dataProduct.cantidad = 1;
     arrObjt.push(dataProduct);
@@ -63,4 +66,3 @@ const arrConditional = (dataProduct) => {
   }
   return arrObjt;
 };
-  

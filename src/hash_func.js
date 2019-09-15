@@ -13,7 +13,7 @@ const hashTmpl = (hash) => {
 };
 
 const showTemplate = (hashTm) => {
-  const cutHash = hashTm.substr(2, hashTm.length - 2);    
+  const cutHash = hashTm.substr(2, hashTm.length - 2);     
   const callSect = document.getElementById('templContainer');
   callSect.innerHTML = objTempl[cutHash];
   switch (cutHash) {

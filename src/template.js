@@ -105,6 +105,3 @@ export const objTempl = {
     <p>El archivo especificado no se encontró en este sitio web. Por favor, compruebe la URL para errores y vuelva a intentarlo.</p>
   </div>`
 };
-
-
-

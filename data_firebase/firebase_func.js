@@ -13,9 +13,10 @@ export const getFunc = (breakOrLunch) => {
       };    
       arrObj.push(objDocum);
     });
+    // console.log('ver obj', arrObj)    
     arrObj.forEach((ele) => {
       buttonMenu(ele);
-      // console.log('ver ele', ele);      
+      //  console.log('ver ele', ele);      
     });
   });
 };
