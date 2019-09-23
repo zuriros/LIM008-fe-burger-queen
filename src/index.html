@@ -14,23 +14,54 @@
 </head>
 
 <body>
+<header>
+  <nav>
+    <section>
+      <h2>Panel de control</h2>
+    </section>
+    <section>
+      <a href="#/"><img src="../imagenes2/Groupburguer.png" alt="Burgerqueen"></a>
+    </section>
+    <section >
+      <h2>Cerrar</h2>
+    </section>
+  </nav>
+  <nav>
+    <ul>
+      <li><a href="#/desayuno">Desayuno</a></li>
+      <li><a href="#/almuerzo">Almuerzos</a></li>
+      <li><a href="#/extras">Acompañamientos</a></li>    
+    </ul>
+  </nav>
+</header>
 
-    <header>
-      <div>
-        <section>
-       <h2>Panel de control</h2>
-      </section>
-      <section>
-         <a href="#/"><img src="../imagenes2/Groupburguer.png" alt="Burgerqueen"></a>
-        </section>
-        <section >
-       <h2>Cerrar</h2>
-      </section>
-      </div>
-    </header>
-
-    <section id='templContainer'></section>
-
+<main>
+  <section id='templContainer'></section>
+  <div>
+    <form action="">Nombre:<input type="text"></form>  
+    <div>
+      <table>
+        <thead>
+          <tr>
+           <th>Producto</th>
+           <th>Cantidad</th>
+           <th>Precio</th>
+           <th></th>
+          </tr>
+        </thead>
+       <tbody id ="pedidos"></tbody>
+       <tfoot>
+         <tr> 
+          <td>Total</td> 
+          <td></td>
+          <td><span id='Total'>S/.0</span></td>
+         </tr>
+       </tfoot>
+      </table>
+     <button>Enviar a cocina</button>    
+    </div>
+  </div>
+</main>
     <footer class = "footer">
       <div class="">
         <p class="">Creado por @zuriros 2019</p>

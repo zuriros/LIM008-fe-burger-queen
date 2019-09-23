@@ -13,43 +13,9 @@ export const getFunc = (breakOrLunch) => {
       };    
       arrObj.push(objDocum);
     });
-    // console.log('ver obj', arrObj)    
     arrObj.forEach((ele) => {
-      buttonMenu(ele);
-      //  console.log('ver ele', ele);      
+      buttonMenu(ele);      
     });
   });
 };
 
-// const eventShowData = (idButton) => {
-// document.getElementById('8cF6pXRj7tzHlqchlW5M').addEventListener('click', () => {
-//   document.getElementById('hola').innerHTML = 'holaaass';
-// });
-// };  
-// eventShowData('8cF6pXRj7tzHlqchlW5M');
-
-// functLi('Jugo de frutas natural');
-
-// getFunc('Desayuno');
-
-
-// Creando una función para llamar a mi data según la elección
-  
-// const desOrAlmuer = (route) => {
-//   if (route === '#/desayuno') {
-//     return getFunc('Desayuno');
-//   } else {
-//     return getFunc('Resto del día');
-//   }
-// };
-//  desOrAlmuer('#/desayuno');
-//  const db = firebase.firestore();
-
-// db.collection('Menu').get().then((snapshot) => {
-//   const arrObj = [];
-//   snapshot.docs.forEach(doc => {
-//     arrObj.push(doc.data());
-//   });
-//    console.log(arrObj);
-   
-// });

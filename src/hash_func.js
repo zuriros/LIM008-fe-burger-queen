@@ -1,11 +1,10 @@
 import { objTempl } from './template.js';
 import { getFunc } from '../data_firebase/firebase_func.js';
 
-
 const hashTmpl = (hash) => {
   if (hash === '#/' || hash === '' || hash === '#') {
     return showTemplate('#/home');
-  } else if (hash === '#/cocina' || hash === '#/mesas' || hash === '#/desayuno' || hash === '#/almuerzo') {
+  } else if (hash === '#/cocina' || hash === '#/mesas' || hash === '#/desayuno' || hash === '#/almuerzo' || hash === '#/extras') {
     return showTemplate(hash);
   } else {
     return showTemplate('#/errorPag');
@@ -22,6 +21,9 @@ const showTemplate = (hashTm) => {
     break;
   case 'almuerzo':
     return getFunc('Resto del día');
+    break;
+  case 'extras':
+    return getFunc('Acompañamiento');
     break;
   default:
     break;
