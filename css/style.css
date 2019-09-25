@@ -1,16 +1,151 @@
+/* CLASES REUTILIZABLES */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #f2f2f2;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 1.71429;
+    font-family: 'Montserrat', sans-serif;
+  
+  }
+  
+  img {
+    vertical-align: middle;
+  }
+  
+  .container {
+    width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  
+  .container:before, .container:after {
+    content: " ";
+    display: table;
+  }
+  
+  *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  .container:after {
+    clear: both;
+  }
+  
+  .mb-0 {
+    margin-bottom: 0px;
+  }
+  
+  .mt-0 {
+    margin-top: 0px;
+  }
+  
+  .m-0 {
+    margin: 0px;
+  }
+  
+  a, span{
+    color: #373B47;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #E95853;
+  }
+  
+  .text-uppercase {
+    text-transform: uppercase;
+  }
+  .containerBody{
+    width: 85%;
+    margin: 0 auto;
+  }
+  /*---------------------fin de clases reutilizables------------------ */
 header{
-    width:100%;
-    background:rgba(248, 245, 245, 0.671);
-    margin: 0%;
-    text-align: center;
+    /* width:100%; */
+    /* padding: 1rem 0; */
+    position: relative;
+    left:0;
+    top:0;
+    right:0;
 }
+ header nav{
+    /* color: white; */
+    text-decoration: none;
+ }
  img{
     width: 100px; 
     height: 100px
  }
- section{
-     display: inline;
+.firstNav, .secondNav {
+   display:flex;
+   justify-content: space-between;
+   align-items: center;
+   flex-wrap: wrap;
+}
+.firstNav-color{
+    color: white;
+    /* background: rgb(211, 207, 203); */
+
+    /* background:rgb(204, 165, 129); */
+    /* background: rgb(231, 187, 65); */
+   background:rgba(57, 62, 65, 0.63);
+   /* background: rgb(211, 207, 203); */
+   /* background:rgb(228, 201, 192); */
+}
+.secondNav-color{
+   
+    /* background:rgb(228, 201, 192); */
+   background: rgb(231, 187, 65);
+   /* background:rgb(89, 127, 127); */
+   /* background: rgb(68, 187, 164); */
+}
+.secondNav{
+    width: 50%;
+}
+ .secondNav ul{
+    margin:0;
+    padding: 0;
+    list-style: none;  
  }
+   .secondNav ul li {
+      display: inline-block;   
+    }
+     .secondNav ul li a {
+        display: block;
+        padding:0.2rem 1.1rem;
+        transition: all 0.4s linear;
+        color: white;
+     }
+       .secondNav ul li a:hover{
+          background: rgba(98, 89, 89, 0.685);
+          border: white 1px solid;
+          border-radius:7px;
+       }
+/* ------------------css del main------------ */
+/* main {
+  background:rgb(228, 201, 192);
+  background:rgb(57, 62, 65);
+
+} */
+ /* section{
+     display: inline;
+ }*/
  body{
    background: url('../imagenes2/flor.jpg');
    background-position: center;
@@ -19,6 +154,7 @@ header{
    background-attachment: fixed;
 
  }
+  /*
 .label{
     font-size: 17px
 }
@@ -27,9 +163,7 @@ header{
 
  }
  footer{
-    /* width:100%; */
     background:black;
-    /* margin: 0%; */
     text-align: center;
     color: bisque;
     position:fixed;
@@ -37,4 +171,4 @@ header{
     bottom:0px;
     height:30px;
     width:100%;
- }
+ } */
