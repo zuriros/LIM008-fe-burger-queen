@@ -19,3 +19,17 @@ export const getFunc = (breakOrLunch) => {
   });
 };
 
+export const addProducts = (userName, food, pedido, cantidad) => {
+  return firebase.firestore().collection('Menu').add({
+    customerName: userName,
+    nombre: food,
+    tipo: pedido,
+    total: cantidad,
+    // profilePicUrl: userPhoto,
+    // descripcion: textNewNote,
+    // likeCounter: 0,
+    // userId: userUid,
+    // typeShare: privacidad,
+    // date: firebase.firestore.FieldValue.serverTimestamp()
+  });
+};
