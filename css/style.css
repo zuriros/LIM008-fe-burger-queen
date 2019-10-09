@@ -104,7 +104,7 @@ header{
 
     /* background:rgb(204, 165, 129); */
     /* background: rgb(231, 187, 65); */
-   background:rgba(57, 62, 65, 0.63);
+   background:rgba(57, 62, 65, 0.781);
    /* background: rgb(211, 207, 203); */
    /* background:rgb(228, 201, 192); */
 }
@@ -124,7 +124,7 @@ header{
     list-style: none;  
  }
    .secondNav ul li {
-      display: inline-block;   
+      display:block;   
     }
      .secondNav ul li a {
         display: block;
@@ -154,7 +154,109 @@ header{
    background-attachment: fixed;
 
  }
-  /*
+ /* .containerBody{
+  width: 70%;
+ } */
+ /* #productsList{
+   width: 40%;
+
+ } */
+ #productsList, #templTableList{
+   text-align: center;
+ }
+ form, table {
+  text-align: left;
+}
+ #productsList div section{
+   background:rgba(192, 171, 143, 0.767);
+   /* width: 70%; */
+   /* border-bottom: 12px #373B47; */
+ }
+ #productsList div section div{
+  /* border-style:solid; */
+  /* border-bottom:20px; */
+  text-align: left;
+  border-bottom: 1px solid rgb(128, 128, 128);
+  cursor: pointer;
+ }
+h5{
+   font-size: 17px;
+   /* color: green */
+   margin:0 15px;
+   padding: 15px 0;
+   
+
+ }
+ #productsList button, #submit-kitchen {
+   background:rgb(231, 187, 65);
+   font-size: 1rem;
+   padding: 10px;
+   border-radius: 10px;
+   margin: 2rem 0;
+   border: 1px solid white;
+   text-align: center;
+ }
+ /* ----------------section tabla de pedidos------------------------- */
+#templTableList{
+    background: white;
+    padding: 1.3rem 0;
+    border: 5px solid rgba(57, 62, 65, 0.781);
+  }
+#customer-name{
+   width: 100%;
+   border: none;
+   border-bottom: 1px solid rgb(46, 46, 45);
+ }
+table{
+  margin: 1rem 0;
+ }
+td input {
+  width: 30px;
+}
+#numbers{
+  min-width: 76px;
+}
+.total-product{
+  text-align: center;
+}
+.btn-drec, .btn-inc{
+  font-size: 16px;
+  padding: 0 3px;
+}
+tfoot{
+  padding: 1rem 0;
+}
+/* ---------------------footer------------------------ */
+footer{
+  background:rgba(57, 62, 65);
+  margin-top: 5rem;
+  padding: 1rem 0;
+  text-align: center;
+  color: white;
+} 
+/*--------------------responsive-----------------  */
+@media only screen and (min-width: 500px){
+  .secondNav ul li {
+   display:inline-block;   
+}
+}
+
+@media only screen and (min-width: 700px){
+#productsList{
+  width: 50%;
+}
+main{
+  display:flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  flex-wrap: wrap;
+}
+#templTableList{
+  width: 50%;
+  height: 20%;
+}
+}
+/*
 .label{
     font-size: 17px
 }

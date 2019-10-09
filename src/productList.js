@@ -5,10 +5,10 @@ export const templObj = (Obj, i) => {
   const creatTr = document.createElement('tr');
   const templFood = `
        <td>${Obj.nombre}</td>
-       <td><input type="number" id="myNumber-${i}" value="${Obj.cantidad}">
+       <td id = 'numbers'><input type="number" id="myNumber-${i}" value="${Obj.cantidad}">
        <button id="subtractElement-${i}" class="btn-drec" data-indice = "${i}" title="inc stock">-</button>
        <button id="addElement-${i}" class="btn-inc" title="inc stock">+</button></td>
-       <td id="total-${i}" class="totalProd-${i}">${Obj.cantidad * Obj.precio}</td>
+       <td id="total-${i}" class="totalProd-${i} total-product">${Obj.cantidad * Obj.precio}</td>
        <td><button id="deleteElement-${i}" class="btn-delete" data-indic = "${i}" title="inc stock">X</button></td>
     `;
 
@@ -61,11 +61,12 @@ export const htmlContent = () => {
 </header>
 
 <main>
-  <div class="containerBody">
     <section id='productsList'></section>
     <section id='templTableList'>
-      <div>
-        <form action="">Nombre:<input id = 'customer-name'type="text"></form>  
+      <div class = 'containerBody'>
+        <form action="">
+        <label>Nombre</label>
+        <input id = 'customer-name' type='text'></form>  
         <div>
           <table>
             <thead>
@@ -89,11 +90,10 @@ export const htmlContent = () => {
         </div>
        </div>
     </section>
-  </div>
 </main>
     <footer class = "footer">
       <div class="">
-        <p class="">Creado por @zuriros 2019</p>
+        <p class="m-0">Creado por @zuriros 2019</p>
       </div>
     </footer>
   `;

@@ -11,19 +11,16 @@ export const objTempl = {
     <figure><img src="" alt=""></figure>
    </div>`,
   desayuno: `<div>
-    <h2>Desayuno</h2>
     <section id='des-list1'></section>
     <a href="#/mesas"><button class="btn btn-warning btn-lg">Regresar</button></a>
    </div>
    `,
   almuerzo: `<div>
-  <h2>Almuerzo</h2>
   <section id='des-list2'></section>
   <a href="#/mesas"><button>Regresar</button></a>
   </div>
   `,
   extras: `<div>
-  <h2>Acompañamiento</h2>
   <section id='des-list3'></section>
   <a href="#/mesas"><button class="btn btn-warning btn-lg">Regresar</button></a>
   </div>
