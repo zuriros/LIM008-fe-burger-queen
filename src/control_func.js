@@ -2,51 +2,6 @@ import { templObj } from './productList.js';
 import { addProducts } from '../data_firebase/firebase_func.js';
  
 export const arrObjt = []; 
-export const buttonMenu = (dataProd) => {
-  const name = callIdButtOfWindow(dataProd.data.tipo); 
-  const comidList = document.getElementById(name);
-  const divList = document.createElement('div');
-  divList.setAttribute('id', dataProd.id);
-  const tmplListProduct = `
-    <h5>${dataProd.data.nombre} S/.${dataProd.data.precio}</h5>
-  `;
-  divList.innerHTML = tmplListProduct;
-  comidList.appendChild(divList);
-  eventShowData(dataProd.id, dataProd.data);
-  return divList;
-};
-
-export const eventShowData = (idButton, dataProduct) => {
-  const callIdButt = document.getElementById(idButton);  
-  callIdButt.addEventListener('click', () => { 
-    const arrDataProduct = arrConditional(dataProduct);
-    // console.log(funcCallPedidos);
-    // console.log(htmlContent().querySelector('#pedidos'));
-    
-    const callPedidos = document.getElementById('pedidos');
-    // console.log(callPedidos);
-    
-    // const callPedidos = htmlContent().querySelector('#pedidos');
-    // console.log(callPedidos);
-    
-    callPedidos.innerHTML = '';    
-    addEachElement(arrDataProduct, callPedidos);
-    totalAmount(arrObjt);
-  }); 
-};  
-export const addEachElement = (arrDataProduct, callPedidos) => {
-  // debugger;
-  let sumaTotal = 0;
-  arrDataProduct.forEach((elem, i) => {  
-    // templObj(elem, i).join('');
-    callPedidos.appendChild(templObj(elem, i));
-    // callPedidos.innerHTML = templObj(elem, i);
-    sumaTotal += elem.cantidad * elem.precio;
-    // console.log('soy html', htmlContent());
-    // console.log('soy pedidos', callPedidos);
-  });    
-};
-
 // export const buttonMenu = (dataProd) => {   
 //   const name = callIdButtOfWindow(dataProd.data.tipo); 
 //   const comidList = document.getElementById(name);
@@ -64,7 +19,9 @@ export const addEachElement = (arrDataProduct, callPedidos) => {
 // };
 
 // ----función para llamar a cada boton por su tipo e iidentificar su id(tmpl)---- 
-const callIdButtOfWindow = (dataProdTipo) => {
+export const callIdButtOfWindow = (dataProdTipo) => {
+  console.log(dataProdTipo);
+  
   if (dataProdTipo === 'Desayuno') {
     return 'des-list1';
   } 
@@ -75,8 +32,10 @@ const callIdButtOfWindow = (dataProdTipo) => {
     return 'des-list3';
   }
 };
-const arrConditional = (dataProduct) => {  
+export const arrConditional = (dataProduct) => {  
+  // console.log('la data', dataProduct);
   const findFirstElem = arrObjt.find((element) => (element === dataProduct));
+  // console.log('soy primer elem', findFirstElem);
   if (findFirstElem === undefined) {
     dataProduct.cantidad = 1;
     arrObjt.push(dataProduct);
@@ -86,13 +45,18 @@ const arrConditional = (dataProduct) => {
   return arrObjt;
 };
 // -------------------evento para agregar prodcto por botón-----------------------
-export const addElement = (arrObjt, btnAdd, inputQuantity, i, inputTotal) => {
-  btnAdd.addEventListener('click', () => {
-    inputQuantity.value = arrObjt[`${i}`].cantidad += 1;
-    inputTotal = arrObjt[`${i}`].cantidad * arrObjt[`${i}`].precio;
-    document.querySelector(`.totalProd-${i}`).innerHTML = inputTotal;
-    totalAmount(arrObjt);    
-  });
+export const addElement = (arrObjt,/* btnAdd, inputQuantity,*/ i/*, inputTotal*/) => {
+  // btnAdd.addEventListener('click', () => {
+    // event.preventDefault();
+    // console.log(document.querySelector(`.totalProd-${i}`));
+    // console.log(arrObjt[`${i}`]);
+   const addCantidad = arrObjt[`${i}`].cantidad += 1;
+   return addCantidad * arrObjt[`${i}`].precio;
+    // inputQuantity.value = arrObjt[`${i}`].cantidad += 1;
+    // inputTotal =  inputQuantity.value * arrObjt[`${i}`].precio;
+    // document.querySelector(`.totalProd-${i}`).innerHTML = inputTotal;
+    // totalAmount(arrObjt);    
+  // });
 };
 // -------------------evento para disminuir prodcto por botón-----------------------
 export const removingElements = (arrObjt, btnSubtract, inputQuantity, i, inputTotal) => {
@@ -104,6 +68,8 @@ export const removingElements = (arrObjt, btnSubtract, inputQuantity, i, inputTo
     } else {
       inputQuantity.value = 0;
     } 
+    // console.log('cuanto es total', totalAmount(arrObjt));
+
     totalAmount(arrObjt);
   });
 };
@@ -120,16 +86,24 @@ export const deleteElements = (arrObjt, btnDelete, callPedidos, i) => {
         });
       }
     }
+    
+    // console.log('cuanto es total', totalAmount(arrObjt));
+    
+    // document.querySelector('#Total').innerHTML = totalAmount(arrObjt);
+
     totalAmount(arrObjt);
   });
 };
 // -------------------- calculando el total-------------------------
-const totalAmount = (arrData) => { 
+export const totalAmount = (arrData) => {
+  console.log(arrData);
+   
   let sumaTotalSec = 0;
   arrData.forEach((elem, i) => {
     sumaTotalSec += elem.cantidad * elem.precio;
   });
-  document.querySelector('#Total').innerHTML = sumaTotalSec;
+  return sumaTotalSec;
+  // document.querySelector('#Total').innerHTML = sumaTotalSec;
 
   // htmlContent().querySelector('#Total').innerHTML = sumaTotalSec;
 }; 
@@ -187,11 +161,9 @@ const totalAmount = (arrData) => {
 //     }
 //   }); 
 // };
-// -----------------------agregar nombre del cliente a firebase-----------
+// -----------------------agregar nombre y datos del pedido del cliente a firebase-----------
 export const addProductsOnSubmit = (event) => {
   event.preventDefault();
-  
-  
   const inputName = document.getElementById('customer-name');
   // console.log('soy input', inputName);
   // console.log(arrObjt.nombre);
@@ -205,7 +177,7 @@ export const addProductsOnSubmit = (event) => {
   } else {
     alert('escriba nombre del cliente');
   }
-  console.log('creo ser l submit', event);
+  // console.log('creo ser l submit', event);
 };
 // ------------------función para actualizar pedidos al hacer click---------------------------------------
 const updateOrders = (event, inputName) => {
@@ -220,3 +192,7 @@ const updateOrders = (event, inputName) => {
     // console.log('yo soy el array de objetos', arrObjt);  
   }
 };
+
+// export const sum = (a, b) => {
+//   return a + b;
+// }

@@ -1,8 +1,11 @@
-import {addElement, removingElements, deleteElements, arrObjt, addProductsOnSubmit} from './control_func.js';
+import {/*addElement,*/ removingElements, deleteElements, arrObjt, addProductsOnSubmit, totalAmount} from './control_func.js';
+import {eventAddElement} from './view-controller.js';
 // import { arrObjt, templObj} from './control_func.js';
 
 export const templObj = (Obj, i) => {
   const creatTr = document.createElement('tr');
+  console.log('soy obj', Obj);
+  
   const templFood = `
        <td>${Obj.nombre}</td>
        <td id = 'numbers'><input type="number" id="myNumber-${i}" value="${Obj.cantidad}">
@@ -22,7 +25,13 @@ export const templObj = (Obj, i) => {
   const callPedidos = document.getElementById('pedidos');
   // const callPedidos = htmlContent().querySelector('#pedidos');
   // -------------------función para agregar prodcto por botón-----------------------
-  addElement(arrObjt, btnAdd, inputQuantity, i, inputTotal);
+  // console.log('soy el boton mas', btnAdd);
+  
+  // btnAdd.addEventListener('click', addElement(arrObjt, inputQuantity, i, inputTotal, event));
+  // console.log(arrObjt);
+  console.log(i);
+  
+  eventAddElement(arrObjt, btnAdd, inputQuantity, i, inputTotal);
   // -----------------función para disminuir producto por botón-----------------------    
   removingElements(arrObjt, btnSubtract, inputQuantity, i, inputTotal);
   // -------------------------Evento para eliminar producto--------------------------
@@ -99,13 +108,27 @@ export const htmlContent = () => {
   `;
   // creatElement.appendChild(tableContent);
   body.innerHTML = tmplHtml;
+  
   const inputSubmitKitchen = body.querySelector('#submit-kitchen');
+  // body.querySelector('#Total').innerHTML = totalAmount(arrObjt);
+  // console.log(totalAmount(arrObjt));
+  
+  // body.querySelector('#Total').innerHTML = totalAmount(arrObjt);
+  // arrObjt.forEach((i) => {
+  //   console.log('hola');
+    
+  //   const btnAdd = body.querySelector(`#addElement-${i}`);  
+  //   console.log(btnAdd);
+  // });
+  
+ 
   // const callPedidos = creatElement.querySelector('#pedidos');
   // funcCallPedidos(creatElement);
   // console.log(sectionId);
   // console.log(arrObjt);
   inputSubmitKitchen.addEventListener('click', addProductsOnSubmit);
   console.log('soy el evento dos', event);
+  
   return body;
 };
 

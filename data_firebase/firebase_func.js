@@ -1,5 +1,5 @@
 
-import {buttonMenu} from '../src/control_func.js';
+import {buttonMenu} from '../src/view-controller.js';
 
 // obteniendo la data de firebase
 export const getFunc = (breakOrLunch) => {  
@@ -14,7 +14,9 @@ export const getFunc = (breakOrLunch) => {
       arrObj.push(objDocum);
     });
     arrObj.forEach((ele) => {
-      buttonMenu(ele);      
+      buttonMenu(ele);   
+      // console.log('soy boton', buttonMenu(ele));
+         
     });
   });
 };
@@ -25,11 +27,5 @@ export const addProducts = (userName, food, pedido, cantidad) => {
     nombre: food,
     tipo: pedido,
     total: cantidad,
-    // profilePicUrl: userPhoto,
-    // descripcion: textNewNote,
-    // likeCounter: 0,
-    // userId: userUid,
-    // typeShare: privacidad,
-    // date: firebase.firestore.FieldValue.serverTimestamp()
   });
 };

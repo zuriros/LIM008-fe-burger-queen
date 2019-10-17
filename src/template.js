@@ -1,4 +1,4 @@
-import {buttonMenu, eventShowData} from './control_func.js';
+import { buttonMenu, eventShowData } from './view-controller.js';
 import { templObj } from './productList.js'; 
 export const objTempl = {
   home: `<div>

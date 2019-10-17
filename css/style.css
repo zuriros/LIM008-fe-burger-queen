@@ -226,6 +226,9 @@ td input {
 tfoot{
   padding: 1rem 0;
 }
+#pedidos tr{
+  border-bottom: 1px solid rgb(231, 231, 37);
+}
 /* ---------------------footer------------------------ */
 footer{
   background:rgba(57, 62, 65);
@@ -242,18 +245,18 @@ footer{
 }
 
 @media only screen and (min-width: 700px){
-#productsList{
-  width: 50%;
+  #productsList{
+    width: 50%;
 }
-main{
-  display:flex;
-  justify-content: space-between;
-  /* align-items: center; */
-  flex-wrap: wrap;
+  main{
+    display:flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    flex-wrap: wrap;
 }
-#templTableList{
-  width: 50%;
-  height: 20%;
+  #templTableList{
+    width: 50%;
+    height: 20%;
 }
 }
 /*
