@@ -21,4 +21,4 @@ const config = {
 };
 firebase.initializeApp(config);
 
- 
+window.onload = config;
