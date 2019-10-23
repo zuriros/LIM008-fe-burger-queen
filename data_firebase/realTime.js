@@ -9,7 +9,7 @@
 //   // Get a reference to the database service
 //   const database = firebase.database();
 
-import { initRouter } from '../src/hash_func';
+import { initRouter } from '../src/hash_func.js';
 // Initialize Firebase
 const initFirebase = () => {
 const config = {
