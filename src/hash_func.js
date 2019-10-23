@@ -70,5 +70,7 @@ const showTemplate = (hashTm) => {
   }
 };
 
+export const initRouter = () => {
 window.addEventListener('load', hashTmpl(window.location.hash));
 if (('onhashchange' in window)) window.onhashchange = () => hashTmpl(window.location.hash);
+};

@@ -9,8 +9,9 @@
 //   // Get a reference to the database service
 //   const database = firebase.database();
 
-
+import { initRouter } from '../src/hash_func';
 // Initialize Firebase
+const initFirebase = () => {
 const config = {
   apiKey: 'AIzaSyAP8qgYLelKLSceXYf7_6JnRqI1xhPaomo',
   authDomain: 'burger-queen-c806e.firebaseapp.com',
@@ -20,5 +21,6 @@ const config = {
   messagingSenderId: '156052892794'
 };
 firebase.initializeApp(config);
-
-window.onload = config;
+initRouter();
+};
+window.onload = initFirebase;
