@@ -1,11 +1,9 @@
-import {/*addElement,*/ removingElements, deleteElements, arrObjt, addProductsOnSubmit, totalAmount} from './control_func.js';
-import {eventAddElement} from './view-controller.js';
+import { deleteElements, arrObjt, totalAmount} from './control_func.js';
+import {addProductsOnSubmit, eventAddElement, eventRemovingElements, eventDeleteElements} from './view-controller.js';
 // import { arrObjt, templObj} from './control_func.js';
 
 export const templObj = (Obj, i) => {
-  const creatTr = document.createElement('tr');
-  console.log('soy obj', Obj);
-  
+  const creatTr = document.createElement('tr');  
   const templFood = `
        <td>${Obj.nombre}</td>
        <td id = 'numbers'><input type="number" id="myNumber-${i}" value="${Obj.cantidad}">
@@ -15,6 +13,8 @@ export const templObj = (Obj, i) => {
        <td><button id="deleteElement-${i}" class="btn-delete" data-indic = "${i}" title="inc stock">X</button></td>
     `;
 
+    // console.log('existo????', obj);
+    
   creatTr.innerHTML = templFood;
   // evento de los tres botones +, -, x.  
   const btnAdd = creatTr.querySelector(`#addElement-${i}`);  
@@ -28,14 +28,16 @@ export const templObj = (Obj, i) => {
   // console.log('soy el boton mas', btnAdd);
   
   // btnAdd.addEventListener('click', addElement(arrObjt, inputQuantity, i, inputTotal, event));
-  // console.log(arrObjt);
-  console.log(i);
-  
+  // console.log(arrObjt);  
   eventAddElement(arrObjt, btnAdd, inputQuantity, i, inputTotal);
   // -----------------función para disminuir producto por botón-----------------------    
-  removingElements(arrObjt, btnSubtract, inputQuantity, i, inputTotal);
+  // removingElements(arrObjt, btnSubtract, inputQuantity, i, inputTotal);
+  eventRemovingElements(arrObjt, btnSubtract, inputQuantity, i, inputTotal);
+
   // -------------------------Evento para eliminar producto--------------------------
-  deleteElements(arrObjt, btnDelete, callPedidos, i);
+  eventDeleteElements(arrObjt, btnDelete, callPedidos, i);
+
+  // deleteElements(arrObjt, btnDelete, callPedidos, i);
 // console.log('soy evento', event);
 
   return creatTr;
@@ -110,25 +112,8 @@ export const htmlContent = () => {
   body.innerHTML = tmplHtml;
   
   const inputSubmitKitchen = body.querySelector('#submit-kitchen');
-  // body.querySelector('#Total').innerHTML = totalAmount(arrObjt);
-  // console.log(totalAmount(arrObjt));
   
-  // body.querySelector('#Total').innerHTML = totalAmount(arrObjt);
-  // arrObjt.forEach((i) => {
-  //   console.log('hola');
-    
-  //   const btnAdd = body.querySelector(`#addElement-${i}`);  
-  //   console.log(btnAdd);
-  // });
-  
- 
-  // const callPedidos = creatElement.querySelector('#pedidos');
-  // funcCallPedidos(creatElement);
-  // console.log(sectionId);
-  // console.log(arrObjt);
-  inputSubmitKitchen.addEventListener('click', addProductsOnSubmit);
-  console.log('soy el evento dos', event);
-  
+  inputSubmitKitchen.addEventListener('click', addProductsOnSubmit);  
   return body;
 };
 

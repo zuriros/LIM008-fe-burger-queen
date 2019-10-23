@@ -1,23 +1,27 @@
 
-import {buttonMenu} from '../src/view-controller.js';
-
+// import {buttonMenu} from '../src/view-controller.js';
+// import {forEachElementOfGetFunc} from '../src/control_func.js';
 // obteniendo la data de firebase
-export const getFunc = (breakOrLunch) => {  
+export const getFunc = (callback) => {  
   const db = firebase.firestore();
-  return db.collection('Menu').where('tipo', '==', breakOrLunch).get().then((snapshot) => { 
-    const arrObj = [];  
+  return db.collection('Menu').get().then((snapshot) => { 
+    // .where('tipo', '==', breakOrLunch)
+    const arrObj = [];      
     snapshot.docs.forEach(doc => {
+      // console.log(doc);
       const objDocum = {
         id: doc.id,
         data: doc.data()
-      };    
+      };          
       arrObj.push(objDocum);
-    });
-    arrObj.forEach((ele) => {
-      buttonMenu(ele);   
-      // console.log('soy boton', buttonMenu(ele));
-         
-    });
+    });    
+    // console.log('aquí estoy');
+    
+    // console.log(arrObj);
+    
+    callback(arrObj); 
+    // arrObj.for 
+    // });
   });
 };
 
@@ -28,4 +32,4 @@ export const addProducts = (userName, food, pedido, cantidad) => {
     tipo: pedido,
     total: cantidad,
   });
-};
+};     

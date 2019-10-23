@@ -1,6 +1,8 @@
 import { objTempl } from './template.js';
 import { getFunc } from '../data_firebase/firebase_func.js';
 import { htmlContent } from './productList.js';
+import { buttonMenu } from './view-controller.js';
+
 const hashTmpl = (hash) => {
   if (hash === '#/' || hash === '' || hash === '#') {
     return showTemplate('#/home');
@@ -27,13 +29,41 @@ const showTemplate = (hashTm) => {
 
   switch (cutHash) {
   case 'desayuno':
-    return getFunc('Desayuno');
+  // console.log('hash', getFunc('Desayuno').then(ele => ele));
+    getFunc((arrObjFun) => {
+      const name = arrObjFun.filter((ele) => {
+        const dataAccordingToTipe = ele.data.tipo === 'Desayuno';
+        return dataAccordingToTipe;
+      });  
+      name.forEach((ele) => {      
+        buttonMenu(ele);   
+      });
+    });
+    // return getFunc('Desayuno');    
     break;
   case 'almuerzo':
-    return getFunc('Resto del día');
+    getFunc((arrObjFun) => {
+      const name = arrObjFun.filter((ele) => {
+        const dataAccordingToTipe = ele.data.tipo === 'Resto del día';
+        return dataAccordingToTipe;
+      });  
+      name.forEach((ele) => {      
+        buttonMenu(ele);   
+      });
+    });
+    // return getFunc('Resto del día');
     break;
   case 'extras':
-    return getFunc('Acompañamiento');
+    getFunc((arrObjFun) => {
+      const name = arrObjFun.filter((ele) => {
+        const dataAccordingToTipe = ele.data.tipo === 'Acompañamiento';
+        return dataAccordingToTipe;
+      });  
+      name.forEach((ele) => {      
+        buttonMenu(ele);   
+      });
+    });
+    // return getFunc('Acompañamiento');
     break;
   default:
     break;

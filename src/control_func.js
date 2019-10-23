@@ -1,7 +1,23 @@
 import { templObj } from './productList.js';
-import { addProducts } from '../data_firebase/firebase_func.js';
- 
+import { addProducts, getFunc } from '../data_firebase/firebase_func.js';
+// import { buttonMenu } from './view-controller.js';
 export const arrObjt = []; 
+// obteniendo la data de getFunc y recorrerlo uno a uno
+// getFunc((arrObjFun) => {
+//   const name = arrObjFun.filter((ele) => {
+//     const dataAccordingToTipe = ele.data.tipo === nameAccordingToTipe;
+//     return dataAccordingToTipe;
+//   });
+//   console.log(name);
+  
+//   console.log(arrObjFun);
+  
+//   // arrObjFun.forEach((ele) => { 
+//   //   console.log(ele.data.tipo);
+   
+//   //   // buttonMenu(ele);   
+//   // });
+// });
 // export const buttonMenu = (dataProd) => {   
 //   const name = callIdButtOfWindow(dataProd.data.tipo); 
 //   const comidList = document.getElementById(name);
@@ -20,23 +36,23 @@ export const arrObjt = [];
 
 // ----función para llamar a cada boton por su tipo e iidentificar su id(tmpl)---- 
 export const callIdButtOfWindow = (dataProdTipo) => {
-  console.log(dataProdTipo);
+  // console.log(dataProdTipo);
   
   if (dataProdTipo === 'Desayuno') {
     return 'des-list1';
-  } 
-  if (dataProdTipo === 'Resto del día') {
+  } else if (dataProdTipo === 'Resto del día') {
     return 'des-list2';
-  }
-  if (dataProdTipo === 'Acompañamiento') {
+  } else {
+  // if (dataProdTipo === 'Acompañamiento') {
     return 'des-list3';
   }
 };
 export const arrConditional = (dataProduct) => {  
-  // console.log('la data', dataProduct);
-  const findFirstElem = arrObjt.find((element) => (element === dataProduct));
+  // console.log('la data', dataProduct.cantidad);
+  // const findFirstElem = arrObjt.find((element) => (element === dataProduct));
   // console.log('soy primer elem', findFirstElem);
-  if (findFirstElem === undefined) {
+  // if (findFirstElem === undefined) {
+  if (dataProduct.cantidad === undefined) {
     dataProduct.cantidad = 1;
     arrObjt.push(dataProduct);
   } else {
@@ -45,58 +61,65 @@ export const arrConditional = (dataProduct) => {
   return arrObjt;
 };
 // -------------------evento para agregar prodcto por botón-----------------------
-export const addElement = (arrObjt,/* btnAdd, inputQuantity,*/ i/*, inputTotal*/) => {
+export const addElement = (arrObjt, /* btnAdd, inputQuantity,*/ i/* , inputTotal*/) => {
   // btnAdd.addEventListener('click', () => {
-    // event.preventDefault();
-    // console.log(document.querySelector(`.totalProd-${i}`));
-    // console.log(arrObjt[`${i}`]);
-   const addCantidad = arrObjt[`${i}`].cantidad += 1;
-   return addCantidad * arrObjt[`${i}`].precio;
-    // inputQuantity.value = arrObjt[`${i}`].cantidad += 1;
-    // inputTotal =  inputQuantity.value * arrObjt[`${i}`].precio;
-    // document.querySelector(`.totalProd-${i}`).innerHTML = inputTotal;
-    // totalAmount(arrObjt);    
+  // event.preventDefault();
+  // console.log(document.querySelector(`.totalProd-${i}`));
+  // console.log(arrObjt[`${i}`]);
+  let addCantidad = arrObjt[`${i}`].cantidad += 1;
+  return addCantidad * arrObjt[`${i}`].precio;
+  // inputQuantity.value = arrObjt[`${i}`].cantidad += 1;
+  // inputTotal =  inputQuantity.value * arrObjt[`${i}`].precio;
+  // document.querySelector(`.totalProd-${i}`).innerHTML = inputTotal;
+  // totalAmount(arrObjt);    
   // });
 };
 // -------------------evento para disminuir prodcto por botón-----------------------
-export const removingElements = (arrObjt, btnSubtract, inputQuantity, i, inputTotal) => {
-  btnSubtract.addEventListener('click', () => {
-    if (inputQuantity.value >= 1) {
-      inputQuantity.value = arrObjt[`${i}`].cantidad -= 1;
-      inputTotal = arrObjt[`${i}`].cantidad * arrObjt[`${i}`].precio;
-      document.querySelector(`.totalProd-${i}`).innerHTML = inputTotal;
-    } else {
-      inputQuantity.value = 0;
-    } 
-    // console.log('cuanto es total', totalAmount(arrObjt));
+export const removingElements = (arrObjt, /* btnSubtract, inputQuantityValue,*/ i/* , inputTotal*/) => {
+  // btnSubtract.addEventListener('click', () => {
+  // if (inputQuantityValue >= 1) {
+  // inputQuantityValue = arrObjt[`${i}`].cantidad -= 1;
+  let subtractCantidad = arrObjt[`${i}`].cantidad -= 1;
+  // inputTotal = arrObjt[`${i}`].cantidad * arrObjt[`${i}`].precio;
+  // document.querySelector(`.totalProd-${i}`).innerHTML = inputTotal;
+  if (arrObjt[`${i}`].cantidad <= 0) {
+    return arrObjt[`${i}`].cantidad = 0;
+  } else {
+    return subtractCantidad * arrObjt[`${i}`].precio;
+  }
+  // } else {
+  //   inputQuantityValue = 0;bu
+  // } 
+  // console.log('cuanto es total', totalAmount(arrObjt));
 
-    totalAmount(arrObjt);
-  });
+  // totalAmount(arrObjt);
+  // });
 };
   
-export const deleteElements = (arrObjt, btnDelete, callPedidos, i) => {
-  btnDelete.addEventListener('click', () => {     
-    for (let index in arrObjt) {   
-      const element = arrObjt[index];
-      if (element == arrObjt[`${i}`]) {
-        const deleteElement = arrObjt.splice(`${i}`, 1); 
-        callPedidos.innerHTML = '';
-        arrObjt.forEach((elem, i) => {
-          callPedidos.appendChild(templObj(elem, i));
-        });
-      }
+export const deleteElements = (arrObjt, /* btnDelete,  callPedidos,*/ i) => {
+  // btnDelete.addEventListener('click', () => {     
+  for (let index in arrObjt) {   
+    const element = arrObjt[index];
+    if (element == arrObjt[`${i}`]) {
+      const deleteElement = arrObjt.splice(`${i}`, 1); 
+      return arrObjt;
+      // callPedidos.innerHTML = '';
+      // arrObjt.forEach((elem, i) => {
+      //   callPedidos.appendChild(templObj(elem, i));
+      // });
     }
+  }
     
-    // console.log('cuanto es total', totalAmount(arrObjt));
+  // console.log('cuanto es total', totalAmount(arrObjt));
     
-    // document.querySelector('#Total').innerHTML = totalAmount(arrObjt);
+  // document.querySelector('#Total').innerHTML = totalAmount(arrObjt);
 
-    totalAmount(arrObjt);
-  });
+  //   totalAmount(arrObjt);
+  // });
 };
 // -------------------- calculando el total-------------------------
 export const totalAmount = (arrData) => {
-  console.log(arrData);
+  // console.log(arrData);
    
   let sumaTotalSec = 0;
   arrData.forEach((elem, i) => {
@@ -107,6 +130,23 @@ export const totalAmount = (arrData) => {
 
   // htmlContent().querySelector('#Total').innerHTML = sumaTotalSec;
 }; 
+
+// -------------------función de agregar cada elemento -----------------------
+
+// export const addEachElement = (arrDataProduct, callPedidos) => {
+// console.log(arrDataProduct);
+// console.log('otro arr', arrObjt);
+
+//   // let sumaTotal = 0;
+//   arrDataProduct.forEach((elem, i) => {  
+//     // console.log(elem);
+//     // console.log(i);
+//     callPedidos.appendChild(templObj(elem, i));
+//     // return element;
+//     // sumaTotal += elem.cantidad * elem.precio;
+//   });    
+// };
+
 // ------------------función de agregar o quitar elementos--------------------
 
 // const addingOrRemovingElmts = (arrData, i) => {  
@@ -161,37 +201,7 @@ export const totalAmount = (arrData) => {
 //     }
 //   }); 
 // };
-// -----------------------agregar nombre y datos del pedido del cliente a firebase-----------
-export const addProductsOnSubmit = (event) => {
-  event.preventDefault();
-  const inputName = document.getElementById('customer-name');
-  // console.log('soy input', inputName);
-  // console.log(arrObjt.nombre);
-  const pedido = 'pedido';
-  if (inputName.value !== '') {
-    arrObjt.forEach((ele) => {
-      addProducts(inputName.value, ele.nombre, pedido, ele.cantidad);
-    });
-    updateOrders(event, inputName);
-    // addProducts(inputName.value, arrObjt.nombre);
-  } else {
-    alert('escriba nombre del cliente');
-  }
-  // console.log('creo ser l submit', event);
-};
-// ------------------función para actualizar pedidos al hacer click---------------------------------------
-const updateOrders = (event, inputName) => {
-  if (event !== undefined) {
-    arrObjt.splice(0, arrObjt.length);
-    const callingCreatTr = document.getElementById('pedidos');
-    const callingTotal = document.getElementById('Total');    
-    inputName.value = '';
-    callingCreatTr.innerHTML = '';
-    callingTotal.innerHTML = 0;
-    // console.log('no sé que soy, no estoy segura', callingCreatTr);
-    // console.log('yo soy el array de objetos', arrObjt);  
-  }
-};
+
 
 // export const sum = (a, b) => {
 //   return a + b;
