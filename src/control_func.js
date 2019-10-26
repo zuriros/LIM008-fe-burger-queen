@@ -1,4 +1,3 @@
-import { templObj } from './productList.js';
 import { addProducts, getFunc } from '../data_firebase/firebase_func.js';
 // import { buttonMenu } from './view-controller.js';
 export const arrObjt = []; 

@@ -10,7 +10,8 @@ export const buttonMenu = (dataProd) => {
   const divList = document.createElement('div');
   divList.setAttribute('id', dataProd.id);
   const tmplListProduct = `
-      <h5>${dataProd.data.nombre} S/.${dataProd.data.precio}</h5>
+      
+      <h5><img src="${dataProd.data.img}"> ${dataProd.data.nombre} S/.${dataProd.data.precio}</h5>
     `;
   divList.innerHTML = tmplListProduct;
   comidList.appendChild(divList);
