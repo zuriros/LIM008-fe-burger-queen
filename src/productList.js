@@ -6,11 +6,11 @@ export const templObj = (Obj, i) => {
   const creatTr = document.createElement('tr');  
   const templFood = `
        <td>${Obj.nombre}</td>
-       <td id = 'numbers'><input type="number" id="myNumber-${i}" value="${Obj.cantidad}">
-       <button id="subtractElement-${i}" class="btn-drec" data-indice = "${i}" title="inc stock">-</button>
-       <button id="addElement-${i}" class="btn-inc" title="inc stock">+</button></td>
+       <td id = 'numbers'><input  id="myNumber-${i}" value="${Obj.cantidad}">
+       <span id="subtractElement-${i}" class="btn-drec icon-circle-down" data-indice = "${i}" title="inc stock"></span>
+       <span id="addElement-${i}" class="btn-inc icon-circle-up" title="inc stock"></span></td>
        <td id="total-${i}" class="totalProd-${i} total-product">${Obj.cantidad * Obj.precio}</td>
-       <td><button id="deleteElement-${i}" class="btn-delete" data-indic = "${i}" title="inc stock">X</button></td>
+       <td><span id="deleteElement-${i}" class="btn-delete icon-bin" data-indic = "${i}" title="inc stock"></span></td>
     `;
 
     // console.log('existo????', obj);

@@ -6,12 +6,13 @@ import { addProducts } from '../data_firebase/firebase_func.js';
 export const buttonMenu = (dataProd) => {
   // console.log('Algo confuso', dataProd);
   const name = callIdButtOfWindow(dataProd.data.tipo);   
-  const comidList = document.getElementById(name);
+  const comidList = document.getElementById(name);  
   const divList = document.createElement('div');
   divList.setAttribute('id', dataProd.id);
+  const espacio = document.createTextNode('&nbsp');
   const tmplListProduct = `
       
-      <h5><img src="${dataProd.data.img}"> ${dataProd.data.nombre} S/.${dataProd.data.precio}</h5>
+      <h5><img src="${dataProd.data.img}"> ${dataProd.data.nombre } &nbsp &nbsp S/.${dataProd.data.precio}</h5>
     `;
   divList.innerHTML = tmplListProduct;
   comidList.appendChild(divList);
@@ -53,7 +54,6 @@ export const eventRemovingElements = ((arrObjt, btnSubtract, inputQuantity, i, i
     inputTotal = removingElements(arrObjt, i);
     document.querySelector(`.totalProd-${i}`).innerHTML = inputTotal;
     document.querySelector('#Total').innerHTML = totalAmount(arrObjt);
-    
   });
 });
 // Este evento es para la función deleteElements
@@ -65,7 +65,6 @@ export const eventDeleteElements = ((arrObjt, btnDelete, callPedidos, i) => {
     //   document.querySelector(`.totalProd-${i}`).innerHTML = inputTotal;
     });
     document.querySelector('#Total').innerHTML = totalAmount(arrObjt);
-
   });
 });
 

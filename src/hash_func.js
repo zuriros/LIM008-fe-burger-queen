@@ -18,7 +18,8 @@ const hashTmpl = (hash) => {
 const showTemplate = (hashTm) => {
   const cutHash = hashTm.substr(2, hashTm.length - 2);     
   // const callSect = document.getElementById('templContainer'); 
-  const callSectProductList = htmlContent().querySelector('#productsList');
+  debugger;
+  const callSectProductList = htmlContent().querySelector('#productsList');  
   // callSect.appendChild(htmlContent());
   // callSect.innerHTML = callSectProductList.appendChild(objTempl[cutHash]);
   // callSect.innerHTML = objTempl[cutHash];
