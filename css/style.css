@@ -77,17 +77,12 @@
   }
   /*---------------------fin de clases reutilizables------------------ */
 header{
-    /* width:100%; */
-    /* padding: 1rem 0; */
-    /* font-family: 'Monoton', cursive; */
     position: relative;
     left:0;
     top:0;
     right:0;
 }
  header nav{
-    /* color: white; */
-    /* 'Jomolhari', serif */
     text-decoration: none;
  }
  img{
@@ -101,28 +96,16 @@ header{
    flex-wrap: wrap;
 }
 .firstNav-color{
-    color: white;
-    font-size: 1.5rem;
-    letter-spacing: 2px;
-    /* background: rgb(211, 207, 203); */
-
-    /* background:rgb(204, 165, 129); */
-    /* background: rgb(231, 187, 65); */
+   color: white;
+   font-size: 1.5rem;
+   letter-spacing: 2px;
    background:rgba(57, 62, 65, 0.781);
-   /* background: rgb(211, 207, 203); */
-   /* background:rgb(228, 201, 192); */
-}
+  }
 .secondNav-color{
    font-family: 'Monoton', cursive; 
    letter-spacing: 1px;
-    /* background:rgb(228, 201, 192); */
    background: rgb(231, 187, 65);
-   /* background:rgb(89, 127, 127); */
-   /* background: rgb(68, 187, 164); */
 }
-/* .secondNav{
-    width: 50%;
-} */
  .secondNav ul{
     margin:0;
     padding: 0;
@@ -144,14 +127,6 @@ header{
           border-radius:7px;
        }
 /* ------------------css del main------------ */
-/* main {
-  background:rgb(228, 201, 192);
-  background:rgb(57, 62, 65);
-
-} */
- /* section{
-     display: inline;
- }*/
  body{
    background: url('../imagenes2/flor.jpg');
    background-position: center;
@@ -160,13 +135,6 @@ header{
    background-attachment: fixed;
 
  }
- /* .containerBody{
-  width: 70%;
- } */
- /* #productsList{
-   width: 40%;
-
- } */
  #productsList, #templTableList{
    text-align: center;
  }
@@ -175,12 +143,8 @@ header{
 }
  #productsList div section{
    background:rgba(192, 171, 143, 0.767);
-   /* width: 70%; */
-   /* border-bottom: 12px #373B47; */
  }
  #productsList div section div{
-  /* border-style:solid; */
-  /* border-bottom:20px; */
   text-align: left;
   border-bottom: 1px solid rgb(128, 128, 128);
   cursor: pointer;
@@ -191,11 +155,8 @@ header{
   }
 h5{
    font-size: 20px;
-   /* color: green */
    margin:0 15px;
    padding: 15px 0;
-   
-
  }
  label{
    font-size: 20px;
@@ -214,6 +175,7 @@ h5{
  }
  /* ----------------section tabla de pedidos------------------------- */
 #templTableList{
+    margin-bottom: 4rem;
     background: white;
     padding: 1.3rem 0;
     border: 5px solid rgba(57, 62, 65, 0.781);
@@ -274,7 +236,6 @@ footer{
   main{
     display:flex;
     justify-content: space-between;
-    /* align-items: center; */
     flex-wrap: wrap;
     padding-bottom: 4rem;
 }
@@ -283,21 +244,3 @@ footer{
     height: 20%;
 }
 }
-/*
-.label{
-    font-size: 17px
-}
- .desayuno{
-    display: inline;
-
- }
- footer{
-    background:black;
-    text-align: center;
-    color: bisque;
-    position:fixed;
-    left:0px;
-    bottom:0px;
-    height:30px;
-    width:100%;
- } */

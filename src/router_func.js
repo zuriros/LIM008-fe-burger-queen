@@ -1,7 +1,7 @@
 import { objTempl } from './template.js';
 import { getFunc } from '../data_firebase/firebase_func.js';
 import { htmlContent } from './productList.js';
-import { buttonMenu } from './view-controller.js';
+import { creatDivMenuOfEachfood } from './view-controller.js';
 
 const hashTmpl = (hash) => {
   if (hash === '#/' || hash === '' || hash === '#') {
@@ -26,7 +26,7 @@ const showTemplate = (hashTm) => {
         return dataAccordingToTipe;
       });  
       name.forEach((ele) => {      
-        buttonMenu(ele);   
+        creatDivMenuOfEachfood(ele);   
       });
     });
     break;
@@ -37,7 +37,7 @@ const showTemplate = (hashTm) => {
         return dataAccordingToTipe;
       });  
       name.forEach((ele) => {      
-        buttonMenu(ele);   
+        creatDivMenuOfEachfood(ele);   
       });
     });
     break;
@@ -48,7 +48,7 @@ const showTemplate = (hashTm) => {
         return dataAccordingToTipe;
       });  
       name.forEach((ele) => {      
-        buttonMenu(ele);   
+        creatDivMenuOfEachfood(ele);   
       });
     });
     break;

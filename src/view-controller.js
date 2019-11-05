@@ -1,24 +1,20 @@
-import { addElement, callIdButtOfWindow, arrConditional, totalAmount, arrObjt, removingElements, deleteElements} from './control_func.js';
+import { addElement, callIdOfEachRouter, arrConditional, totalAmount, arrObjt, removingElements, deleteElements} from './control_func.js';
 import { templObj } from './productList.js'; 
 import { addProducts } from '../data_firebase/firebase_func.js';
 // import {forEachElementOfGetFunc} from './control_func.js';
 
-export const buttonMenu = (dataProd) => {
-  const name = callIdButtOfWindow(dataProd.data.tipo);   
-  const comidList = document.getElementById(name);  
-  console.log('name', comidList);
-  
-  const divList = document.createElement('div');
-  divList.setAttribute('id', dataProd.id);
-  const espacio = document.createTextNode('&nbsp');
+export const creatDivMenuOfEachfood = (dataProd) => {
+  const nameId = callIdOfEachRouter(dataProd.data.tipo);   
+  const callIdName = document.getElementById(nameId);    
+  const creatDivList = document.createElement('div');
+  creatDivList.setAttribute('id', dataProd.id);
   const tmplListProduct = `
-      
       <h5><img src="${dataProd.data.img}"> ${dataProd.data.nombre } &nbsp &nbsp S/.${dataProd.data.precio}</h5>
     `;
-  divList.innerHTML = tmplListProduct;
-  comidList.appendChild(divList);
+  creatDivList.innerHTML = tmplListProduct;
+  callIdName.appendChild(creatDivList);
   eventShowData(dataProd.id, dataProd.data);  
-  return divList;
+  return creatDivList;
 };
 
 

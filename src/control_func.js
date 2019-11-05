@@ -2,8 +2,8 @@ import { addProducts, getFunc } from '../data_firebase/firebase_func.js';
 
 export const arrObjt = []; 
 
-// ----función para llamar a cada boton por su tipo e iidentificar su id(tmpl)---- 
-export const callIdButtOfWindow = (dataProdTipo) => {  
+// ----función para llamar a cada id de desayuno, almuerzo y extras al elgir las opciones del menú---- 
+export const callIdOfEachRouter = (dataProdTipo) => {    
   if (dataProdTipo === 'Desayuno') {
     return 'des-list1';
   } else if (dataProdTipo === 'Resto del día') {
@@ -12,6 +12,7 @@ export const callIdButtOfWindow = (dataProdTipo) => {
     return 'des-list3';
   }
 };
+
 export const arrConditional = (dataProduct) => {  
   if (dataProduct.cantidad === undefined) {
     dataProduct.cantidad = 1;
