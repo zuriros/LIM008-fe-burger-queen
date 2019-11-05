@@ -1,15 +1,4 @@
-// const config = {
-//     apiKey: "apiKey",
-//     authDomain: "projectId.firebaseapp.com",
-//     databaseURL: "https://databaseName.firebaseio.com",
-//     storageBucket: "bucket.appspot.com"
-//   };
-//   firebase.initializeApp(config);
-
-//   // Get a reference to the database service
-//   const database = firebase.database();
-
-import { initRouter } from '../src/hash_func.js';
+import { initRouter } from '../src/router_func.js';
 // Initialize Firebase
 const initFirebase = () => {
   const config = {

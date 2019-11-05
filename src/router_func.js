@@ -11,26 +11,15 @@ const hashTmpl = (hash) => {
   } else {
     return showTemplate('#/errorPag');
   }
-  const callSect = document.getElementById('templContainer'); 
-  return callSect.appendChild(htmlContent());
 };
 
 const showTemplate = (hashTm) => {
   const cutHash = hashTm.substr(2, hashTm.length - 2);     
-  // const callSect = document.getElementById('templContainer'); 
-  debugger;
   const callSectProductList = htmlContent().querySelector('#productsList');  
-  // callSect.appendChild(htmlContent());
-  // callSect.innerHTML = callSectProductList.appendChild(objTempl[cutHash]);
-  // callSect.innerHTML = objTempl[cutHash];
-  // callSect.innerHTML = htmlContent();
-  // callSect.appendChild(htmlContent());
-  // callSectProductList.innerHTML = '';
   callSectProductList.innerHTML = objTempl[cutHash];
-
+  
   switch (cutHash) {
   case 'desayuno':
-  // console.log('hash', getFunc('Desayuno').then(ele => ele));
     getFunc((arrObjFun) => {
       const name = arrObjFun.filter((ele) => {
         const dataAccordingToTipe = ele.data.tipo === 'Desayuno';
@@ -40,7 +29,6 @@ const showTemplate = (hashTm) => {
         buttonMenu(ele);   
       });
     });
-    // return getFunc('Desayuno');    
     break;
   case 'almuerzo':
     getFunc((arrObjFun) => {
@@ -52,7 +40,6 @@ const showTemplate = (hashTm) => {
         buttonMenu(ele);   
       });
     });
-    // return getFunc('Resto del día');
     break;
   case 'extras':
     getFunc((arrObjFun) => {
@@ -64,7 +51,6 @@ const showTemplate = (hashTm) => {
         buttonMenu(ele);   
       });
     });
-    // return getFunc('Acompañamiento');
     break;
   default:
     break;
@@ -72,6 +58,6 @@ const showTemplate = (hashTm) => {
 };
 
 export const initRouter = () => {
-window.addEventListener('load', hashTmpl(window.location.hash));
-if (('onhashchange' in window)) window.onhashchange = () => hashTmpl(window.location.hash);
+  window.addEventListener('load', hashTmpl(window.location.hash));
+  if (('onhashchange' in window)) window.onhashchange = () => hashTmpl(window.location.hash);
 };

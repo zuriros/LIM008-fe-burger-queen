@@ -1,6 +1,5 @@
 import { deleteElements, arrObjt, totalAmount} from './control_func.js';
 import {addProductsOnSubmit, eventAddElement, eventRemovingElements, eventDeleteElements} from './view-controller.js';
-// import { arrObjt, templObj} from './control_func.js';
 
 export const templObj = (Obj, i) => {
   const creatTr = document.createElement('tr');  
@@ -12,8 +11,6 @@ export const templObj = (Obj, i) => {
        <td id="total-${i}" class="totalProd-${i} total-product">${Obj.cantidad * Obj.precio}</td>
        <td><span id="deleteElement-${i}" class="btn-delete icon-bin" data-indic = "${i}" title="inc stock"></span></td>
     `;
-
-    // console.log('existo????', obj);
     
   creatTr.innerHTML = templFood;
   // evento de los tres botones +, -, x.  
@@ -23,30 +20,21 @@ export const templObj = (Obj, i) => {
   let inputQuantity = creatTr.querySelector(`#myNumber-${i}`);
   let inputTotal = creatTr.querySelector(`.totalProd-${i}`);
   const callPedidos = document.getElementById('pedidos');
-  // const callPedidos = htmlContent().querySelector('#pedidos');
   // -------------------función para agregar prodcto por botón-----------------------
-  // console.log('soy el boton mas', btnAdd);
   
-  // btnAdd.addEventListener('click', addElement(arrObjt, inputQuantity, i, inputTotal, event));
-  // console.log(arrObjt);  
+ 
   eventAddElement(arrObjt, btnAdd, inputQuantity, i, inputTotal);
   // -----------------función para disminuir producto por botón-----------------------    
-  // removingElements(arrObjt, btnSubtract, inputQuantity, i, inputTotal);
   eventRemovingElements(arrObjt, btnSubtract, inputQuantity, i, inputTotal);
 
   // -------------------------Evento para eliminar producto--------------------------
   eventDeleteElements(arrObjt, btnDelete, callPedidos, i);
-
-  // deleteElements(arrObjt, btnDelete, callPedidos, i);
-// console.log('soy evento', event);
-
   return creatTr;
 };
 
 
 export const htmlContent = () => {
-  // const sectionId = document.getElementById('templTableList');  
-  // const creatElement = document.createElement('div'); 
+  
   const body = document.getElementById('templContainer'); 
   const tmplHtml = ` 
   <header>
@@ -108,17 +96,8 @@ export const htmlContent = () => {
       </div>
     </footer>
   `;
-  // creatElement.appendChild(tableContent);
   body.innerHTML = tmplHtml;
-  
   const inputSubmitKitchen = body.querySelector('#submit-kitchen');
-  
   inputSubmitKitchen.addEventListener('click', addProductsOnSubmit);  
   return body;
 };
-
-
-// export const funcCallPedidos = (creatElement) => {
-//   const callPedidos = creatElement.querySelector('#pedidos');
-//   return callPedidos;
-// };
