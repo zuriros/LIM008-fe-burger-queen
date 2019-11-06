@@ -15,11 +15,26 @@ export const getFunc = (callback) => {
   });
 };
 
-export const addProducts = (userName, food, pedido, cantidad) => {
-  return firebase.firestore().collection('Menu').add({
+export const getPedido = (callback) => {  
+  const db = firebase.firestore();
+  return db.collection('Pedidos').get().then((snapshot) => { 
+    const arrObj = [];      
+    snapshot.docs.forEach(doc => {
+      const objDocum = {
+        id: doc.id,
+        data: doc.data()
+      };          
+      arrObj.push(objDocum);
+    });    
+    callback(arrObj); 
+  });
+};
+
+export const addProducts = (userName, arr, date, status) => {
+  return firebase.firestore().collection('Pedidos').add({
     customerName: userName,
-    nombre: food,
-    tipo: pedido,
-    total: cantidad,
+    order: arr,
+    date,
+    status,
   });
 };     

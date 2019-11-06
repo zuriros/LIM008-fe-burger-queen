@@ -61,11 +61,18 @@ export const eventDeleteElements = ((arrObjt, btnDelete, callPedidos, i) => {
 export const addProductsOnSubmit = (event) => {
   event.preventDefault();
   const inputName = document.getElementById('customer-name');
-  const pedido = 'pedido';
+  const newArrPedido = [];
+  const date = new Date();  
   if (inputName.value !== '') {
-    arrObjt.forEach((ele) => {
-      addProducts(inputName.value, ele.nombre, pedido, ele.cantidad);
-    });
+    const status = 'pendiente';
+    arrObjt.forEach((obj) => {
+      const newObj = {
+        nombre: obj.nombre,
+        cantidad: obj.cantidad
+      };
+      newArrPedido.push(newObj);
+    });    
+    addProducts(inputName.value, newArrPedido, date, status);
     updateOrders(event, inputName);
   } else {
     alert('escriba nombre del cliente');

@@ -34,7 +34,6 @@ export const templObj = (Obj, i) => {
 
 
 export const htmlContent = () => {
-  
   const body = document.getElementById('templContainer'); 
   const tmplHtml = ` 
   <header>
