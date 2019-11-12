@@ -1,5 +1,5 @@
-import { deleteElements, arrObjt, totalAmount} from './control_func.js';
-import {addProductsOnSubmit, eventAddElement, eventRemovingElements, eventDeleteElements} from './view-controller.js';
+import { deleteElements, arrObjt, totalAmount} from './controller.js';
+import { addProductsOnSubmit, eventAddElement, eventRemovingElements, eventDeleteElements} from './view-controller.js';
 
 export const templObj = (Obj, i) => {
   const creatTr = document.createElement('tr');  
@@ -21,7 +21,6 @@ export const templObj = (Obj, i) => {
   let inputTotal = creatTr.querySelector(`.totalProd-${i}`);
   const callPedidos = document.getElementById('pedidos');
   // -------------------función para agregar prodcto por botón-----------------------
-  
  
   eventAddElement(arrObjt, btnAdd, inputQuantity, i, inputTotal);
   // -----------------función para disminuir producto por botón-----------------------    
@@ -33,7 +32,9 @@ export const templObj = (Obj, i) => {
 };
 
 
-export const htmlContent = () => {
+export const htmlContent = (event) => {
+  // event.preventDefault();
+  // console.log('hello');
   const body = document.getElementById('templContainer'); 
   const tmplHtml = ` 
   <header>
@@ -50,9 +51,9 @@ export const htmlContent = () => {
 <div class="secondNav-color">
   <nav class="secondNav">
     <ul>
-      <li><a href="#/desayuno">Desayuno</a></li>
-      <li><a href="#/almuerzo">Almuerzos</a></li>
-      <li><a href="#/extras">Acompañamientos</a></li>    
+      <li><a class = 'hash' href="#/desayuno">Desayuno</a></li>
+      <li><a class = 'hash1' href="#/almuerzo">Almuerzos</a></li>
+      <li><a class = 'hash2' href="#/extras">Acompañamientos</a></li>    
     </ul>
   </nav>
 </div>

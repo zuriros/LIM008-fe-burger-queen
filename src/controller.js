@@ -1,4 +1,4 @@
-import { addProducts, getFunc } from '../data_firebase/firebase_func.js';
+import { addProducts, getFunc } from '../firebaseDoc/dataFirebase.js';
 
 export const arrObjt = []; 
 
@@ -22,12 +22,12 @@ export const arrConditional = (dataProduct) => {
   }
   return arrObjt;
 };
-// -------------------evento para agregar prodcto por botón-----------------------
+// -------------------función para agregar prodcto por botón-----------------------
 export const addElement = (arrObjt, i) => {
   let addCantidad = arrObjt[`${i}`].cantidad += 1;
   return addCantidad * arrObjt[`${i}`].precio;
 };
-// -------------------evento para disminuir prodcto por botón-----------------------
+// -------------------función para disminuir prodcto por botón-----------------------
 export const removingElements = (arrObjt, i) => {
   let subtractCantidad = arrObjt[`${i}`].cantidad -= 1;
   if (arrObjt[`${i}`].cantidad <= 0) {

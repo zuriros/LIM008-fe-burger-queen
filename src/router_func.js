@@ -1,8 +1,8 @@
 import { objTempl } from './template.js';
-import { getFunc } from '../data_firebase/firebase_func.js';
+import { getFunc } from '../firebaseDoc/dataFirebase.js';
 import { htmlContent } from './productList.js';
 import { creatDivMenuOfEachfood } from './view-controller.js';
-
+import { arrObjt } from './controller.js';
 const hashTmpl = (hash) => {
   if (hash === '#/' || hash === '' || hash === '#') {
     return showTemplate('#/home');
@@ -29,6 +29,7 @@ const showTemplate = (hashTm) => {
         creatDivMenuOfEachfood(ele);   
       });
     });
+    // arrObjt.innerHTML = objTempl();
     break;
   case 'almuerzo':
     getFunc((arrObjFun) => {
@@ -40,6 +41,7 @@ const showTemplate = (hashTm) => {
         creatDivMenuOfEachfood(ele);   
       });
     });
+    
     break;
   case 'extras':
     getFunc((arrObjFun) => {
@@ -51,12 +53,12 @@ const showTemplate = (hashTm) => {
         creatDivMenuOfEachfood(ele);   
       });
     });
+       
     break;
   default:
     break;
   }
 };
-
 export const initRouter = () => {
   window.addEventListener('load', hashTmpl(window.location.hash));
   if (('onhashchange' in window)) window.onhashchange = () => hashTmpl(window.location.hash);

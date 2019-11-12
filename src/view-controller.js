@@ -1,6 +1,6 @@
-import { addElement, callIdOfEachRouter, arrConditional, totalAmount, arrObjt, removingElements, deleteElements} from './control_func.js';
-import { templObj } from './productList.js'; 
-import { addProducts } from '../data_firebase/firebase_func.js';
+import { addElement, callIdOfEachRouter, arrConditional, totalAmount, arrObjt, removingElements, deleteElements} from './controller.js';
+import { templObj, htmlContent } from './productList.js'; 
+import { addProducts } from '../firebaseDoc/dataFirebase.js';
 // import {forEachElementOfGetFunc} from './control_func.js';
 
 export const creatDivMenuOfEachfood = (dataProd) => {
@@ -17,9 +17,9 @@ export const creatDivMenuOfEachfood = (dataProd) => {
   return creatDivList;
 };
 
-
+// función para mostrar la data en la tabla de pedidos
 export const eventShowData = (idButton, dataProduct) => {
-  const callIdButt = document.getElementById(idButton);  
+  const callIdButt = document.getElementById(idButton);    
   callIdButt.addEventListener('click', () => { 
     const arrDataProduct = arrConditional(dataProduct);
     const callPedidos = document.getElementById('pedidos');  
@@ -29,7 +29,7 @@ export const eventShowData = (idButton, dataProduct) => {
   }); 
 };  
 // este evento es para la función addElement
-export const eventAddElement = (arrObjt, btnAdd, inputQuantity, i, inputTotal) => {
+export const eventAddElement = (arrObjt, btnAdd, inputQuantity, i, inputTotal) => {  
   btnAdd.addEventListener('click', () => {    
     inputQuantity.value = arrObjt[`${i}`].cantidad + 1;
     inputTotal = addElement(arrObjt, i);
@@ -95,3 +95,15 @@ export const addEachElement = (arrDataProduct, callPedidos) => {
     callPedidos.appendChild(templObj(elem, i));
   });    
 };
+// ----------------------------------------
+// export const showRouter = () => {
+//   // const classHash = document.getElementsByClassName('hash');
+//   // console.log(classHash);
+  
+// };
+// const classHash = htmlContent().querySelector('.hash');
+// // const classHash = htmlContent().querySelectorAll('.hash');
+//   console.log(classHash);
+  
+//   // classHash[0].addEventListener('onhashchange', console.log('yyyy'));
+//   classHash.addEventListener('onhashchange', console.log('yyyy'));
