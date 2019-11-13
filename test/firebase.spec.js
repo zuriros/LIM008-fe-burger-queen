@@ -34,8 +34,8 @@ const fixtureData = {
 
 
 global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled: true });
-import { addProducts, getFunc, getPedido } from '../data_firebase/firebase_func.js';
-import { forEachElementOfGetFunc } from '../src/control_func.js';
+import { addProducts, getFunc, getPedido } from '../firebaseDoc/dataFirebase.js';
+import { forEachElementOfGetFunc } from '../src/controller.js';
 
 const newArr = [
   {cantidad: 6,

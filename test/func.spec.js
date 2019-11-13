@@ -1,4 +1,4 @@
-import { arrConditional, callIdOfEachRouter, totalAmount, addElement, removingElements, deleteElements} from '../src/control_func.js';
+import { arrConditional, callIdOfEachRouter, totalAmount, addElement, removingElements, deleteElements} from '../src/controller.js';
 const objeto = { nombre: 'Papas fritas', precio: 5, tipo: 'Acompañamiento'};
 const objCantidad = { nombre: 'Papas fritas', precio: 5, tipo: 'Acompañamiento', cantidad: 1};
 
